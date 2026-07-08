@@ -27,6 +27,8 @@ const css = read(cssPath);
   "2026-09-06",
   "婚车方案",
   "幻影",
+  "小红书商家幻影",
+  "6000 元/台",
   "库里南",
   "宾利飞驰",
   "男方用品",
@@ -41,6 +43,8 @@ const css = read(cssPath);
 
 [
   "assets/car-phantom.jpg",
+  "assets/car-xiaohongshu-phantom.jpg",
+  "assets/xiaohongshu-phantom-chat.jpg",
   "assets/car-cullinan.jpg",
   "assets/car-bentley-flying-spur.jpg",
   "assets/robot-price-list.jpg",

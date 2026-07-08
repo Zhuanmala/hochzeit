@@ -313,6 +313,16 @@ h3 {
   color: var(--muted);
 }
 
+.evidence-link {
+  margin-top: 12px !important;
+}
+
+.evidence-link a {
+  color: var(--red);
+  font-weight: 800;
+  text-decoration: none;
+}
+
 .clean-list,
 .compact-list,
 .check-list {
