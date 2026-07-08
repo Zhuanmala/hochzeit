@@ -179,6 +179,7 @@ h3 {
 .overview-grid,
 .car-grid,
 .supply-grid,
+.people-grid,
 .todo-grid {
   display: grid;
   gap: 18px;
@@ -193,6 +194,7 @@ h3 {
 }
 
 .supply-grid,
+.people-grid,
 .todo-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
@@ -231,6 +233,10 @@ h3 {
 
 .accent-blue {
   border-top-color: var(--blue);
+}
+
+.accent-green {
+  border-top-color: #4f8a58;
 }
 
 .tag,
@@ -405,6 +411,48 @@ h3 {
   padding: 0 18px 18px;
 }
 
+.host-card {
+  grid-column: 1 / -1;
+  padding: 24px;
+  background:
+    linear-gradient(145deg, rgba(185, 46, 58, 0.08), transparent 48%),
+    var(--surface-strong);
+}
+
+.host-card p {
+  margin: 12px 0 0;
+  color: var(--muted);
+}
+
+.host-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.host-facts span {
+  padding: 8px 11px;
+  border-radius: 999px;
+  background: var(--blue-soft);
+  color: #14596b;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.source-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.source-links a {
+  color: var(--red);
+  font-weight: 800;
+  text-decoration: none;
+}
+
 .footer {
   display: flex;
   justify-content: space-between;
@@ -439,6 +487,7 @@ h3 {
   .overview-grid,
   .car-grid,
   .supply-grid,
+  .people-grid,
   .todo-grid,
   .tech-layout {
     grid-template-columns: 1fr;

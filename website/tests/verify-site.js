@@ -36,6 +36,15 @@ const css = read(cssPath);
   "科技表演",
   "AI 数字人",
   "DJI 无人机送戒指",
+  "人员与服装",
+  "女方主持人已确认",
+  "化妆已确认",
+  "婚纱已确认",
+  "男方主持人待确认",
+  "武利平",
+  "国家一级演员",
+  "西服已定制",
+  "8 月初试穿",
   "待确认事项",
 ].forEach((text) => {
   assert(html.includes(text), `index.html should include "${text}"`);
