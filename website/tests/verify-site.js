@@ -24,6 +24,21 @@ assert(fs.existsSync(cssPath), "website/styles.css should exist");
 
 const html = read(indexPath);
 const css = read(cssPath);
+const cullinanRangeRoverTitle = "\u767d\u8272\u5e93\u91cc\u5357 + 5 \u8f86\u767d\u8272\u63fd\u80dc";
+const cullinanRangeRoverAsset = "assets/car-combo-cullinan-range-rover.png";
+
+assert(
+  html.includes(cullinanRangeRoverTitle),
+  "index.html should include the white Cullinan plus five white Range Rovers option",
+);
+assert(
+  html.includes(cullinanRangeRoverAsset),
+  `index.html should reference ${cullinanRangeRoverAsset}`,
+);
+assert(
+  fs.existsSync(path.join(root, cullinanRangeRoverAsset)),
+  `${cullinanRangeRoverAsset} should exist`,
+);
 
 [
   "婚礼筹备进度",
@@ -65,7 +80,6 @@ const css = read(cssPath);
 
 [
   "理想组合",
-  "白色库里南",
   "小红书商家幻影",
   "阿斯顿马丁 DBX",
   "暂未找到车源",
