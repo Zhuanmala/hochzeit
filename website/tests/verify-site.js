@@ -15,6 +15,10 @@ function read(filePath) {
   return fs.readFileSync(filePath, "utf8");
 }
 
+function countOccurrences(source, text) {
+  return source.split(text).length - 1;
+}
+
 assert(fs.existsSync(indexPath), "website/index.html should exist");
 assert(fs.existsSync(cssPath), "website/styles.css should exist");
 
@@ -26,18 +30,16 @@ const css = read(cssPath);
   "2026-09-05",
   "2026-09-06",
   "婚车方案",
-  "理想组合",
-  "白色库里南",
-  "5 台宾利",
-  "幻影",
-  "小红书商家幻影",
-  "6000 元",
-  "阿斯顿马丁 DBX",
-  "8000 元",
-  "暂未找到车源",
-  "非实车照片，取自宣传图",
-  "库里南",
-  "宾利飞驰",
+  "黑色古斯特 + 5 辆黑色宾利",
+  "黑色古斯特 + 5 辆黑色帕拉梅拉",
+  "黑色古斯特 + 5 辆黑色奔驰 S",
+  "古斯特 3000 元/天",
+  "宾利 2500 元/天",
+  "帕拉梅拉 2500 元/天",
+  "奔驰 S 1000 元/天",
+  "15500 元/天",
+  "8000 元/天",
+  "AI 生成效果图",
   "男方用品",
   "女方用品",
   "科技表演",
@@ -62,13 +64,19 @@ const css = read(cssPath);
 });
 
 [
-  "assets/car-phantom.jpg",
-  "assets/car-xiaohongshu-phantom.jpg",
-  "assets/xiaohongshu-phantom-chat.jpg",
-  "assets/car-aston-martin-dbx.jpg",
-  "assets/car-aston-martin-dbx-2.jpg",
-  "assets/car-cullinan.jpg",
-  "assets/car-bentley-flying-spur.jpg",
+  "理想组合",
+  "白色库里南",
+  "小红书商家幻影",
+  "阿斯顿马丁 DBX",
+  "暂未找到车源",
+].forEach((text) => {
+  assert(!html.includes(text), `index.html should remove old car content "${text}"`);
+});
+
+[
+  "assets/car-combo-ghost-bentley.png",
+  "assets/car-combo-ghost-panamera.png",
+  "assets/car-combo-ghost-mercedes-s.png",
   "assets/robot-price-list.jpg",
 ].forEach((asset) => {
   const assetPath = path.join(root, asset);
@@ -78,5 +86,9 @@ const css = read(cssPath);
 
 assert(css.includes("@media"), "styles.css should include responsive rules");
 assert(css.includes(".card"), "styles.css should define reusable card styling");
+assert(
+  countOccurrences(html, "15500 元/天") >= 2,
+  "index.html should show 15500 元/天 for both Bentley and Panamera options",
+);
 
 console.log("Static wedding progress site verification passed.");
